@@ -1,6 +1,5 @@
 # app.py
-from flask import Flask, jsonify
-
+from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
@@ -9,6 +8,8 @@ app = Flask(__name__)
 def hello():
     return jsonify(message="Hello, World!")
 
+
+# --- Add a blank line above this to fix E302 ---
 @app.route('/echo', methods=['POST'])
 def echo():
     data = request.get_json(force=True)
